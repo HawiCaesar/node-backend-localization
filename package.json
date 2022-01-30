@@ -1,0 +1,26 @@
+{
+  "name": "backend-trial-localization",
+  "version": "1.0.0",
+  "description": "node js server for backend localization",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --experimental-specifier-resolution=node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HawiCaesar",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "i18next": "^21.6.10",
+    "i18next-fs-backend": "^1.1.4",
+    "i18next-http-middleware": "^3.1.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

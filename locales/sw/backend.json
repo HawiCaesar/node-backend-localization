@@ -1,0 +1,14 @@
+{
+    "welcome": "Karibu kwa API ya nyuma",
+    "register": {
+        "allRequired": "Sehemu zote zinahitajika",
+        "existingUser": "Mtumiaji Tayari Yupo. Tafadhali Ingia"
+    },
+    "login": {
+        "invalid": "Vitambulisho Batili"
+    },
+    "token": {
+        "required": "Tokeni inahitajika kwa uthibitishaji",
+        "invalid": "Tokeni batili"
+    }
+}

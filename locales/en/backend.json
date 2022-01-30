@@ -1,0 +1,13 @@
+{
+    "welcome": "Welcome to the backend API",
+    "register": {
+        "allRequired": "All fields are required",
+        "existingUser": "User Already Exist. Please Login"
+    },
+    "login": {
+        "invalid": "Invalid Credentials"
+    },
+    "token": {
+        "required": "A token is required for authentication"
+    }
+}
