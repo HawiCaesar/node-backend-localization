@@ -21,7 +21,19 @@ app.use(
     })
 )
 
-// Logic goes here
+app.use((req, res, next) => {
+  
+  const allowedOrigins = ['http://localhost:3000'];
+  const origin = req.headers.origin;
+  console.log(origin,'########')
+  // if (allowedOrigins.includes(origin)) {
+  //      res.setHeader('Access-Control-Allow-Origin', origin);
+  // }
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  return next();
+});
 
 
 // Register
@@ -55,8 +67,6 @@ try {
       email: email.toLowerCase(), // sanitize: convert email to lowercase
       password: encryptedPassword,
     });
-
-    console.log(user, '&&&&&&')
 
     // Create token
     const token = jwt.sign(
@@ -115,5 +125,12 @@ try {
 app.get("/welcome", auth, (req, res) => {
     res.status(200).send(`${req.t('welcome')} 🙌 `);
   });
+
+app.get("/status", auth, (req, res) => {
+
+  console.log('****')
+
+  res.status(200).send({loggedIn: true, user: req.user.user_id})
+})
 
 export default app

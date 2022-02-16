@@ -8,6 +8,6 @@
         "invalid": "Invalid Credentials"
     },
     "token": {
-        "required": "A token is required for authentication"
+        "required": "You are not allowed to access this resource"
     }
 }

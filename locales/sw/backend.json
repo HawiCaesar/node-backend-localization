@@ -8,7 +8,6 @@
         "invalid": "Vitambulisho Batili"
     },
     "token": {
-        "required": "Tokeni inahitajika kwa uthibitishaji",
-        "invalid": "Tokeni batili"
+        "required": "Huruhusiwi kufikia maelezo haya"
     }
 }
