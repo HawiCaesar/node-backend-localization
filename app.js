@@ -23,15 +23,20 @@ app.use(
 
 app.use((req, res, next) => {
   
-  const allowedOrigins = ['http://localhost:3000'];
-  const origin = req.headers.origin;
-  console.log(origin,'########')
-  // if (allowedOrigins.includes(origin)) {
-  //      res.setHeader('Access-Control-Allow-Origin', origin);
-  // }
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,x-access-token');
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // Pass to next layer of middleware
   return next();
 });
 
