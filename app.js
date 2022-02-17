@@ -100,7 +100,10 @@ try {
 
     // Validate user input
     if (!(email && password)) {
-      res.status(400).send(req.t('register.allRequired'));
+      return res.status(400).send({
+        statusCode: 400,
+        errorMessage: req.t('register.allRequired')
+      });
     }
     // Validate if user exist in our database
     const user = await User.findOne({ email: email.toLowerCase() });
@@ -119,9 +122,12 @@ try {
         user.token = token;
 
         // user
-        res.status(200).json(user);
+        return res.status(200).json(user);
       }
-      res.status(400).send(req.t('login.invalid'));
+      return res.status(401).send({
+        statusCode: 401,
+        errorMessage: req.t('login.invalid')
+      });
     } catch (err) {
       console.log(err);
     }
@@ -132,9 +138,6 @@ app.get("/welcome", auth, (req, res) => {
   });
 
 app.get("/status", auth, (req, res) => {
-
-  console.log('****')
-
   res.status(200).send({loggedIn: true, user: req.user.user_id})
 })
 
