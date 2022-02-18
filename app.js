@@ -53,7 +53,10 @@ app.post('/register', async (req, res) => {
 
     // Validate user input
     if (!(email && password && first_name && last_name)) {
-      return res.status(400).send(req.t('register.allRequired'));
+      return res.status(400).send({
+        statusCode: 400,
+        errorMessage: req.t('register.allRequired')
+      });
     }
 
     // check if user already exist
@@ -61,7 +64,10 @@ app.post('/register', async (req, res) => {
     const oldUser = await User.findOne({ email: email.toLowerCase() });
 
     if (oldUser) {
-      return res.status(409).send(req.t('register.existingUser'));
+      return res.status(409).send({
+        statusCode: 409,
+        errorMessage: req.t('register.existingUser')
+      });
     }
 
     //Encrypt user password
